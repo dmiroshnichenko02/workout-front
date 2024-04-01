@@ -8,7 +8,7 @@ import NotFound from '../components/screens/not-found/NotFound.jsx'
 import { routes } from './routes.data'
 
 const Router = () => {
-	const { isAuth } = useAuth()
+	const { setIsAuth, isAuth } = useAuth()
 
 	return (
 		<BrowserRouter>

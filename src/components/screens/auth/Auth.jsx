@@ -1,39 +1,23 @@
 /* eslint-disable no-unused-vars */
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 import Loader from '../../ui/loader/Loader'
+
+import { useAuthPage } from '../../../hooks/useAuthPage'
 
 import styles from './Auth.module.scss'
 
 import Layout from '../../layout/Layout'
 
 const Auth = () => {
-	const isLoading = false
-	const isLoadingAuth = false
-
-	const [type, setType] = useState('auth')
-	const {
-		register,
-		handleSubmit,
-		formState: { errors }
-	} = useForm({
-		mode: 'onChange'
-	})
-
-	const onSubmit = data => {
-		console.log(data)
-	}
-
-	console.log(errors)
+	const { isLoading, errors, handleSubmit, onSubmit, register, setType } =
+		useAuthPage()
 
 	return (
 		<>
 			<Layout heading='Sign in' bgImage='/images/auth-bg.png' />
 			<div className='wrapper-inner-page'>
-				{(isLoading || isLoadingAuth) && <Loader />}
+				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						error={errors?.email?.message}
@@ -52,7 +36,7 @@ const Auth = () => {
 						options={{ required: 'Password is required' }}
 					/>
 					<div className={styles.wrapperButtons}>
-						<Button clickHandler={() => setType('auth')}>Sign in</Button>
+						<Button clickHandler={() => setType('login')}>Sign in</Button>
 						<Button clickHandler={() => setType('register')}>Sign up</Button>
 					</div>
 				</form>
