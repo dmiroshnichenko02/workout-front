@@ -48,7 +48,15 @@ export const useAuthPage = () => {
 		reset()
 	}
 
-	return useMemo(() => {
-		setType, isLoading, register, handleSubmit, errors, onSubmit
-	}, [errors, isLoading])
+	return useMemo(
+		() => ({
+			setType,
+			isLoading,
+			register,
+			handleSubmit,
+			errors,
+			onSubmit
+		}),
+		[errors, isLoading, register, handleSubmit, onSubmit, setType]
+	)
 }

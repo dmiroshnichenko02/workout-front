@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import cn from 'clsx'
 import Cookies from 'js-cookie'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../../../hooks/useAuth.js'
 
@@ -14,10 +14,13 @@ import { menu } from './menu.data.js'
 const Menu = ({ isShow, setIsShow }) => {
 	const { setIsAuth } = useAuth()
 
+	const navigate = useNavigate()
+
 	const logoutHandler = () => {
 		Cookies.remove(TOKEN)
 		setIsAuth(false)
 		setIsShow(false)
+		navigate('/auth')
 	}
 
 	return (

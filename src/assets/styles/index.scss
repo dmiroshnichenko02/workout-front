@@ -104,3 +104,82 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
 	-moz-appearance: textfield;
 }
+
+.error {
+	color: #8d2b3d;
+	font-size: 1rem;
+}
+
+.select2-selection {
+	&__control {
+		cursor: pointer !important;
+		margin-bottom: 2rem;
+		border-radius: 10px !important;
+		min-height: 48px !important;
+		background-color: $dark-purple-color !important;
+		border: 1px solid transparent !important;
+		color: $white-color;
+		font-size: 18px;
+		width: 100%;
+		&--is-focused {
+			border-color: transparent !important;
+			box-shadow: 0 0 0 1px rgba($accent-color, 0.3) !important;
+		}
+	}
+
+	&__menu {
+		background-color: $dark-purple-color !important;
+		border-radius: 10px !important;
+
+		&-list {
+			padding: 0 !important;
+			border-radius: 10px !important;
+		}
+
+		&-notice {
+			color: #946e86 !important;
+		}
+	}
+
+	&__option {
+		&--is-focused {
+			background-color: darken($dark-purple-color, 7%) !important;
+		}
+		&--is-selected {
+			background-color: darken($dark-purple-color, 8%) !important;
+		}
+	}
+
+	&__indicator,
+	&__indicator:hover {
+		color: $white-color !important;
+	}
+
+	&__placeholder {
+		color: #946e86 !important;
+		margin-left: 6px !important;
+		text-align: left;
+	}
+
+	&__single-value {
+		color: $white-color !important;
+	}
+
+	&__multi-value {
+		border-radius: 6px !important;
+		background-color: lighten($dark-purple-color, 10%) !important;
+
+		&__label {
+			color: $white-color !important;
+		}
+
+		&__remove:hover {
+			background-color: #8b2557 !important;
+			color: $white-color !important;
+		}
+	}
+
+	&__input {
+		color: $white-color !important;
+	}
+}
