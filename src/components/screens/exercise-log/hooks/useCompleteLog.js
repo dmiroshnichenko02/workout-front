@@ -5,7 +5,7 @@ import ExerciseLogService from '../../../../services/exercise/exercise-log.servi
 
 import { useMutation } from '@tanstack/react-query'
 
-export const useCompleteLog = () => {
+export const useCompleteLog = times => {
 	const { id } = useParams()
 	const navigate = useNavigate()
 	const { mutate, error: errorCompleted } = useMutation({
